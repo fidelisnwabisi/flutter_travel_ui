@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_ui/widgets/destination_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,9 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children:
-                    List.generate(_icons.length, (index) => _buildIcon(index)))
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(
+                _icons.length,
+                (index) => _buildIcon(index),
+              ),
+            ),
+            const SizedBox(height: 20),
+            const DestinationCarousel()
           ],
         ),
       ),
