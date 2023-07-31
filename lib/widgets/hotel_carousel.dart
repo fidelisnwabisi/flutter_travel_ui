@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/models/destination_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class DestinationCarousel extends StatelessWidget {
-  const DestinationCarousel({
-    super.key,
-  });
+class HotelCarousel extends StatelessWidget {
+  const HotelCarousel({super.key});
 
   @override
   Widget build(BuildContext context) {
