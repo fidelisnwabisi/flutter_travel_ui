@@ -86,7 +86,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       widget.destination!.city ?? '',
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 24,
+                        fontSize: 35,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 1.2,
                       ),
@@ -95,19 +95,31 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       children: [
                         const Icon(
                           FontAwesomeIcons.locationArrow,
-                          size: 10,
-                          color: Colors.white,
+                          size: 15,
+                          color: Colors.white70,
                         ),
                         const SizedBox(width: 5),
                         Text(
                           widget.destination!.country ?? '',
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 20,
+                          ),
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
+              const Positioned(
+                right: 20,
+                bottom: 20,
+                child: Icon(
+                  Icons.location_on,
+                  color: Colors.white70,
+                  size: 25,
+                ),
+              )
             ],
           )
         ],
