@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_ui/models/activity_model.dart';
 import 'package:flutter_travel_ui/models/destination_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -67,7 +68,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         ),
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: Icon(FontAwesomeIcons.arrowDownWideShort),
+                          icon: const Icon(FontAwesomeIcons.arrowDownWideShort),
                           iconSize: 25,
                           color: Colors.black,
                         ),
@@ -121,6 +122,55 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 ),
               )
             ],
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: widget.destination!.activities!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  //  return Text(widget.destination!.activities![index].name!);
+                  Activity activity = widget.destination!.activities![index];
+                  return Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        height: 170,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(activity.name!),
+                                Text("\$${activity.price}"),
+                              ],
+                            ),
+                            Text(activity.type!),
+                            // _buildRatingStars(activity.rating);
+                            const SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Container(
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).hintColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(activity.startTimes![0]),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  );
+                }),
           )
         ],
       ),
